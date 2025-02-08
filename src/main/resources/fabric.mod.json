@@ -3,13 +3,12 @@
 	"id": "crop-auto-replant",
 	"version": "${version}",
 	"name": "Crop Auto Replant",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A Basic mod to automatically replant crops on right click",
 	"authors": [
-		"Me!"
+		"Eskebre"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/Eskebre/crop-auto-replant"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/crop-auto-replant/icon.png",
