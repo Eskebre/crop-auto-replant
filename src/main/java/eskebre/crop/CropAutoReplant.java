@@ -41,19 +41,19 @@ public class CropAutoReplant implements ModInitializer {
 			
 			//Client Code
 			if (world.isClient) {
-				if (state.getBlock() instanceof CropBlock cropBlock) {
-					int MAX_AGE = cropBlock.getMaxAge();
-					int CURRENT_AGE = cropBlock.getAge(state);
-					if (CURRENT_AGE == MAX_AGE) player.swingHand(hand.MAIN_HAND);
-				}
+				// if (state.getBlock() instanceof CropBlock cropBlock) {
+				// 	int MAX_AGE = cropBlock.getMaxAge();
+				// 	int CURRENT_AGE = cropBlock.getAge(state);
+				// 	if (CURRENT_AGE == MAX_AGE) player.swingHand(hand.MAIN_HAND);
+				// }
 				return ActionResult.PASS;
 			}
-			
+		
 			//Server Code
 			if (state.getBlock() instanceof CropBlock cropBlock) {
 				int MAX_AGE = cropBlock.getMaxAge();
 				int CURRENT_AGE = cropBlock.getAge(state);
-				ItemStack handItem = player.getStackInHand(hand.MAIN_HAND);
+				ItemStack handItem = player.getStackInHand(hand);
 				//3x3 Hoe Break
 				if (handItem.isIn(ItemTags.HOES)) {
 					player.swingHand(hand);
@@ -67,7 +67,7 @@ public class CropAutoReplant implements ModInitializer {
 								if (iMAX_AGE == iCURRENT_AGE) {
 									world.setBlockState(iPos, iState.getBlock().getDefaultState(), 3);
 									Block.dropStacks(iState, world, iPos);
-									player.swingHand(hand);
+									player.swingHand(hand.MAIN_HAND);
 									world.playSound(null, iPos, SoundEvents.BLOCK_CROP_BREAK, SoundCategory.BLOCKS);
 								}
 							}
